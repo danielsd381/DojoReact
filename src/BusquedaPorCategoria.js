@@ -7,8 +7,8 @@ class BusquedaPorCategoria extends Component {
   }
   componentDidMount(){
     var categoria = this.props.categoria;
-    var uri = "https://api.mercadolibre.com/sites/MCO/search?category="+categoria+"&official_store_id=all";
-    // var uri = "https://api.mercadolibre.com/sites/MCO/search?category=MCO1574&official_store_id=all";
+    // var uri = "https://api.mercadolibre.com/sites/MCO/search?category="+categoria+"&official_store_id=all";
+    var uri = "https://api.mercadolibre.com/sites/MCO/search?category=MCO1574&official_store_id=all";
     fetch(uri)
     .then((response) => response.json())
     .then((responseJson) => {
@@ -20,10 +20,12 @@ class BusquedaPorCategoria extends Component {
   render() {
     return (
       <div>
-      <h1>Items:</h1>
-        {this.state.items.map(item =>{
+        <div className="contenido">
+          <h1>Items:</h1>
+          {this.state.items.map(item =>{
           return <div>{item.title}</div>;
-        })}
+          })}
+        </div>
       </div>
     );
   }

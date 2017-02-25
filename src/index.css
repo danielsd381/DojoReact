@@ -1,5 +1,33 @@
+html {
+  margin: 0;
+  padding: 0;
+}
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+
+  background-image: url('./corazon.jpg');
+  background-color: white;
+  background-size: 20px;
+}
+
+.header {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 54px;
+  background-color: black;
+  z-index: 100;
+}
+h1 {
+  margin-top: 0;
+}
+.contenido {
+  position:relative;
+
+  background-color: rgba(255,255,255,0.9);
+  top: 55px;
+  width: 100%;
 }
