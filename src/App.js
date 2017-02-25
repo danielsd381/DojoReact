@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import ResultComponent from './ResultComponent';
-
-//import logo from './logo.svg';
 import './App.css';
-import axios from 'axios';
 
 class App extends Component {
     constructor(props) {
@@ -19,9 +16,10 @@ class App extends Component {
             results: []
         };
         let _this = this;
-        fetch('https://api.mercadolibre.com/sites/MCO/search?q=audifonos').then(response => {
-            console.log(response);
-            _this.setState({results: response.json().results});
+        fetch('https://api.mercadolibre.com/sites/MCO/search?q=audifonos').then(result => result.json()).then(result => {
+            console.log("RESPONSE");
+            console.log(result);
+            _this.setState({results: result.results});
         }).catch(function(error) {
             console.error(error);
             return null;
@@ -40,17 +38,6 @@ class App extends Component {
             </div>
         );
     }
-
-    // loadUsers() {
-    //     let _this = this;
-    //     axios.get('https://api.mercadolibre.com/sites/MCO/search?q=audifonos').then(function(response) {
-    //         console.log(response);
-    //         _this.setState({results: response.data.results});
-    //     }).catch(function(error) {
-    //         console.error(error);
-    //         return null;
-    //     })
-    // }
 }
 
 export default App;
