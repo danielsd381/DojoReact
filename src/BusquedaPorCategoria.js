@@ -12,7 +12,6 @@ class BusquedaPorCategoria extends Component {
     fetch(uri)
     .then((response) => response.json())
     .then((responseJson) => {
-      console.log(responseJson);
       this.setState({items: responseJson.results});
     })
   }
@@ -22,9 +21,7 @@ class BusquedaPorCategoria extends Component {
       <div>
         <div className="contenido">
           <h1>Items:</h1>
-          {this.state.items.map(item =>{
-          return <div>{item.title}</div>;
-          })}
+          {this.state.items.map(item => <div>{item.title}</div>)}
         </div>
       </div>
     );
