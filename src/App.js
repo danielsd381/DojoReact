@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ResultComponent from './ResultComponent';
+import ResultComponent from './Resultado/ResultComponent';
 import './App.css';
 
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
             <div className="container">
                 {this.state.results.map(function(result, j) {
                     return (
-                        <ResultComponent id={result.id} title={result.title} image={result.thumbnail}></ResultComponent>
+                        <ComponenteResultado id={result.id} title={result.title} image={result.thumbnail}></ComponenteResultado>
                     );
                 })}
             </div>
