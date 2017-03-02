@@ -3,33 +3,34 @@ import React, {Component} from 'react';
 export default class ResultComponent extends Component {
     constructor(props) {
         super(props);
-        this.state = {resultado: props.resultado};
+        this.state = {
+            result: {}
+        };
     }
 
 
     render() {
-        if (this.state.resultado.thumbnail && this.state.resultado.id && this.state.resultado.title) {
+
+        const {image, id, title} = this.props;
+        if (image && id && title) {
             return (
                 <div className="panel panel-default">
                     <div className="row">
-                        <div className="col-md-4"><img alt="Result" src={this.state.resultado.thumbnail}
-                                                       className="img-thumbnail"></img></div>
+                        <div className="col-md-4">
+                            <img alt="Result" src={image} className="img-thumbnail"></img>
+                        </div>
                         <div className="col-md-8">
-                            <h3 className="text-center">{this.state.resultado.title}</h3>
-                            <p className="text-center">
-                                {this.state.resultado.id} |
-                                ${this.state.resultado.currency_id} {this.state.resultado.price} | <a
-                                href={this.state.resultado.permalink}>Ir al producto</a>
-                            </p>
-                            <p className="text-center">
-                                {this.state.resultado.address.city_name}, {this.state.resultado.address.state_name}
-                            </p>
+                            <h2 className="text-center">{title}</h2>
+                            <p className="text-center">{id}</p>
                         </div>
                     </div>
                 </div>
             );
         } else {
-            return (<div></div>);
+
+            return (
+                <div></div>
+            );
         }
     }
 }
