@@ -84,3 +84,35 @@ button{
   align-items: center;
   justify-content: center;
 }
+
+.menu{
+  text-align: center;
+  background-color: white;
+}
+.boton-menu {
+  background: #FF9A9A;
+  background-image: -webkit-linear-gradient(top, #FF9A9A, #f0a6a6);
+  background-image: -moz-linear-gradient(top, #FF9A9A, #f0a6a6);
+  background-image: -ms-linear-gradient(top, #FF9A9A, #f0a6a6);
+  background-image: -o-linear-gradient(top, #FF9A9A, #f0a6a6);
+  background-image: linear-gradient(to bottom, #FF9A9A, #f0a6a6);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  color: black;
+  font-size: 15pt;
+  margin: 10px;
+  padding: 10px 20px 10px 20px;
+  border: solid #FF1919 2px;
+  text-decoration: none;
+}
+
+.boton-menu:hover {
+  background: #ed80be;
+  background-image: -webkit-linear-gradient(top, #ed80be, #FA97CF);
+  background-image: -moz-linear-gradient(top, #ed80be, #FA97CF);
+  background-image: -ms-linear-gradient(top, #ed80be, #FA97CF);
+  background-image: -o-linear-gradient(top, #ed80be, #FA97CF);
+  background-image: linear-gradient(to bottom, #ed80be, #FA97CF);
+  text-decoration: none;
+}

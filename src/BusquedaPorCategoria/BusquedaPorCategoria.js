@@ -25,7 +25,7 @@ class BusquedaPorCategoria extends Component {
         <div className="contenido">
         <h2 className="resultados">Resultados:</h2>
           {this.state.items.map(item => (
-            <Resultado resultado={item} />))}
+            <Resultado key={item.id} resultado={item} />))}
         </div>
       </div>
     );

@@ -4,7 +4,6 @@ import Resultado from '../Resultado/Resultado'
 export default class ComponenteBusquedaSimple extends Component {
     constructor(props) {
         super(props);
-        console.log("Búsqueda simple");
         this.state = {
             resultados: []
         };
@@ -16,8 +15,6 @@ export default class ComponenteBusquedaSimple extends Component {
 
     realizarPeticion(texto) {
         let _this = this;
-        console.log("texto: ", texto);
-
         fetch('https://api.mercadolibre.com/sites/MCO/search?q=' + texto).then(result => result.json()).then(resultado => {
             _this.setState({resultados: resultado.results});
         }).catch(function (error) {
@@ -32,7 +29,6 @@ export default class ComponenteBusquedaSimple extends Component {
     }
 
     render() {
-        console.log('resultados', this.state.resultados)
         return (
             <div>
                 <input className="contenido" name="busqueda" id="input" type="text" placeholder="Ingresa la búsqueda"

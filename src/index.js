@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import App from './App';
-import BusquedaPorCategoria from './BusquedaPorCategoria/BusquedaPorCategoria'
+import App from './App';
 import './index.css';
 
 
-  var categoria = 'MCO1574';
+
   ReactDOM.render(
-    <BusquedaPorCategoria categoria={categoria}/>,
+    <App/>,
     document.getElementById('root')
   );
