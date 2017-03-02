@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Resultado from '../Resultado/Resultado';
 
 class BusquedaPorCategoria extends Component {
   constructor(props) {
@@ -24,12 +25,7 @@ class BusquedaPorCategoria extends Component {
         <div className="contenido">
         <h2 className="resultados">Resultados:</h2>
           {this.state.items.map(item => (
-            <div className="item">
-              <div className="titulo">{item.title}</div>
-              <div className="imagen"><img src={item.thumbnail}/></div>
-              <div className="precio">Precio: ${item.price}</div>
-              <div className="link"><a className="link" href={item.permalink}>Más información</a></div>
-            </div>))}
+            <Resultado resultado={item} />))}
         </div>
       </div>
     );
