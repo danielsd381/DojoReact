@@ -9,19 +9,35 @@ class BusquedaPorCategoria extends Component {
   componentDidMount(){
     var categoria = this.props.categoria;
     console.log(categoria);
-    var uri = "https://api.mercadolibre.com/sites/MCO/search?category="+categoria+"&official_store_id=all";
-    // var uri = "https://api.mercadolibre.com/sites/MCO/search?category=MCO1574&official_store_id=all";
-    fetch(uri)
-    .then((response) => response.json())
-    .then((responseJson) => {
-      console.log(responseJson.results);
-      this.setState({items: responseJson.results});
-    })
+    
   }
+      realizarPeticion(categoria) {
+        // let _this = this;
+        // fetch('https://api.mercadolibre.com/sites/MCO/search?q=' + texto).then(result => result.json()).then(resultado => {
+        //     _this.setState({resultados: resultado.results});
+        // }).catch(function (error) {
+        //     console.error(error);
+        //     return null;
+        // })
+        var uri = "https://api.mercadolibre.com/sites/MCO/search?category="+categoria+"&official_store_id=all";
+        fetch(uri)
+        .then((response) => response.json())
+        .then((responseJson) => {
+          console.log(responseJson.results);
+          this.setState({items: responseJson.results});
+        })
+
+
+    }
+
+    cambioSelect(evento) {
+        this.realizarPeticion(evento.target.value);
+    }
 
   render() {
     return (
       <div>
+        
         <div className="contenido">
         <h2 className="resultados">Resultados:</h2>
           {this.state.items.map(item => (
