@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import ResultComponent from '../ResultComponent'
+import Resultado from '../Resultado/Resultado'
 
 export default class ComponenteBusquedaSimple extends Component {
     constructor(props) {
         super(props);
         console.log("Búsqueda simple");
         this.state = {
-            results: []
+            resultados: []
         };
     }
 
@@ -18,9 +18,8 @@ export default class ComponenteBusquedaSimple extends Component {
         let _this = this;
         console.log("texto: ", texto);
 
-        fetch('https://api.mercadolibre.com/sites/MCO/search?q=' + texto).then(result => result.json()).then(result => {
-            // console.log("Response: ", result);
-            _this.setState({results: result.results});
+        fetch('https://api.mercadolibre.com/sites/MCO/search?q=' + texto).then(result => result.json()).then(resultado => {
+            _this.setState({resultados: resultado.results});
         }).catch(function (error) {
             console.error(error);
             return null;
@@ -33,16 +32,20 @@ export default class ComponenteBusquedaSimple extends Component {
     }
 
     render() {
+        console.log('resultados', this.state.resultados)
         return (
-            <div className="container">
-                <input name="busqueda" id="input" type="text" placeholder="Ingresa la búsqueda"
+            <div>
+                <input className="contenido" name="busqueda" id="input" type="text" placeholder="Ingresa la búsqueda"
                        onChange={this.cambioInput.bind(this)}></input>
-                {this.state.results.map(function (resultado, indice) {
-                    return (
-                        <ResultComponent key={resultado.id} resultado={resultado}></ResultComponent>
-                    );
-                })
-                }</div>
+                <div className="contenido">
+                    {this.state.resultados.map(function (resultado, indice) {
+                        return (
+                            <Resultado key={resultado.id} resultado={resultado}></Resultado>
+                        );
+                    })
+                    }
+                </div>
+            </div>
         );
     }
 }
