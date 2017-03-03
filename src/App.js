@@ -3,9 +3,6 @@ import './App.css';
 
 class App extends Component {
     quien = 'mundo';
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
