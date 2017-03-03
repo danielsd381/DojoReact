@@ -6,10 +6,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-
   font-family: "Consolas";
   /*font-family: cursive;*/
-  background-image: url('./corazon.jpg');
+  /*background-image: url('./corazon.jpg')*/;
   background-color: white;
   background-size: 20px;
 }
