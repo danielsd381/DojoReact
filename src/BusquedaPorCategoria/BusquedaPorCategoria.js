@@ -23,10 +23,9 @@ class BusquedaPorCategoria extends Component {
       .then((responseJson) => {
             this.setState({categorias: responseJson});
       }).catch(function(error) {
-          console.log(error);
-          return null;
+          return [];
       })
-      //this.realizarPeticion('MCO40433');
+      this.realizarPeticion('MCO1648');
     }
     realizarPeticion(categoria) {
       this.setState({categoria: categoria});
@@ -41,26 +40,24 @@ class BusquedaPorCategoria extends Component {
     }
 
     cambioSelect(evento) {
+      console.log(evento.target.value);
         this.realizarPeticion(evento.target.value);
     }
 
   render() {
     return (
       <div>
-        
-        
+
+          <div className="buscador">
           <select value={this.state.categoria} onChange={this.cambioSelect.bind(this)}>
             {this.state.categorias.map(categoria => <option value={categoria.id}>{categoria.name}</option>)}
           </select>
+          </div>
           <div className="contenido">
-            
-              {
-                console.log(this.state.items.length)
-              }
               {
               this.state.items.map(item => (
               <Resultado key={item.id} resultado={item} />)
-              )}  
+              )}
         </div>
       </div>
     );
@@ -68,6 +65,3 @@ class BusquedaPorCategoria extends Component {
 }
 
 export default BusquedaPorCategoria;
-
-
-

@@ -31,8 +31,10 @@ export default class ComponenteBusquedaSimple extends Component {
     render() {
         return (
             <div>
-                <input className="contenido" name="busqueda" id="input" type="text" placeholder="Ingresa la búsqueda"
-                       onChange={this.cambioInput.bind(this)}></input>
+                <div className="buscador">
+                  <input name="busqueda" id="input" type="text" placeholder="Ingresa la búsqueda"
+                  onChange={this.cambioInput.bind(this)}></input>
+                </div>
                 <div className="contenido">
                     {this.state.resultados.map(function (resultado, indice) {
                         return (
